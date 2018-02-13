@@ -1,8 +1,8 @@
 Runs an [Exhibitor](https://github.com/Netflix/exhibitor)-managed [ZooKeeper](http://zookeeper.apache.org/) instance using S3 for backups and automatic node discovery.
 
-Available on the Docker Index as [mbabineau/zookeeper-exhibitor](https://index.docker.io/u/mbabineau/zookeeper-exhibitor/):
+Available on the Docker Index as [elytics/zookeeper-exhibitor-ecs](https://index.docker.io/u/elytics/zookeeper-exhibitor-ecs/):
 
-    docker pull mbabineau/zookeeper-exhibitor
+    docker pull elytics/zookeeper-exhibitor-ecs
 
 ### Versions
 * Exhibitor 1.5.5
@@ -11,7 +11,6 @@ Available on the Docker Index as [mbabineau/zookeeper-exhibitor](https://index.d
 ### Usage
 The container expects the following environment variables to be passed in:
 
-* `HOSTNAME` - addressable hostname for this node (Exhibitor will forward users of the UI to this address)
 * `S3_BUCKET` - (optional) bucket used by Exhibitor for backups and coordination
 * `S3_PREFIX` - (optional) key prefix within `S3_BUCKET` to use for this cluster
 * `AWS_ACCESS_KEY_ID` - (optional) AWS access key ID with read/write permissions on `S3_BUCKET`
@@ -32,8 +31,7 @@ Starting the container:
         -e S3_PREFIX=<key_prefix> \
         -e AWS_ACCESS_KEY_ID=<access_key> \
         -e AWS_SECRET_ACCESS_KEY=<secret_key> \
-        -e HOSTNAME=<host> \
-        mbabineau/zookeeper-exhibitor:latest
+        elytics/zookeeper-exhibitor-ecs:latest
 
 Once the container is up, confirm Exhibitor is running:
 
@@ -90,5 +88,4 @@ Starting the container:
     docker run -p 8181:8181 -p 2181:2181 -p 2888:2888 -p 3888:3888 \
         -e S3_BUCKET=<bucket> \
         -e S3_PREFIX=<key_prefix> \
-        -e HOSTNAME=<host> \
-        mbabineau/zookeeper-exhibitor:latest
+        elytics/zookeeper-exhibitor-ecs:latest

@@ -5,8 +5,8 @@ Available on the Docker Index as [elytics/zookeeper-exhibitor-ecs](https://index
     docker pull elytics/zookeeper-exhibitor-ecs
 
 ### Versions
-* Exhibitor 1.5.5
-* ZooKeeper 3.4.6
+* Exhibitor 1.7.0
+* ZooKeeper 3.4.11
 
 ### Usage
 The container expects the following environment variables to be passed in:
